@@ -1,0 +1,14 @@
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\bin\Debug\net8.0\lab_tutorial_1.exe
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\bin\Debug\net8.0\lab_tutorial_1.deps.json
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\bin\Debug\net8.0\lab_tutorial_1.runtimeconfig.json
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\bin\Debug\net8.0\lab_tutorial_1.dll
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\bin\Debug\net8.0\lab_tutorial_1.pdb
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.AssemblyInfoInputs.cache
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.AssemblyInfo.cs
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.dll
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\refint\lab_tutorial_1.dll
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.pdb
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\lab_tutorial_1.genruntimeconfig.cache
+C:\Users\Andrew\Desktop\dsa_tutorial\lab_tutorial_1\obj\Debug\net8.0\ref\lab_tutorial_1.dll
