@@ -1,138 +1,52 @@
-﻿//program works but only can do it once, then need to reset again
-namespace lab2
+﻿namespace Lab4;
+
+//implement graphs to demonstrate BFS and DFS
+class Program
 {
-    internal class Program
+    //implement a node for queue
+    public class Node
     {
-        class Queue
+        public string data;
+        public Node next;
+        
+        //constructor
+        public Node(string arg_data)
         {
-            public string[] data;
-            public int front;
-            public int rear;
-            public int count;
-
-            //constructor
-            public Queue(int arg_max_size)
-            {
-                data = new string[arg_max_size];
-                front = -1;
-                rear = -1;
-                count = 0;
-            }
+            data = arg_data;
         }
-        static void Main(string[] args)
+    }
+    
+    static void Main(string[] args)
+    {
+        List<string> BFSTraversal(List<string> adj, char root)
         {
-            //implement queue using linked list
-            //need front and rear
-            //initialize queue
-            string user_input;
-            int user_choice;
-            Console.WriteLine("Max size for queue: ");
-            int max_size = Convert.ToInt16(Console.ReadLine());
-            Queue queue = new Queue(max_size);
-
-            int Enqueue(string arg_val, Queue arg_q)
-            {
-                if (arg_q.rear == max_size - 1)
-                {
-                    Console.WriteLine("Overflow, queue is full!");
-                    return -1;
-                }
-                if (arg_q.front == -1 && arg_q.rear == -1)
-                {
-                    arg_q.front = 0;
-                    arg_q.rear = 0;
-                }
-                else
-                {
-                    arg_q.rear += 1;
-                }
-                arg_q.data[arg_q.rear] = arg_val;
-                Console.WriteLine("Element added in queue: " + arg_q.data[arg_q.rear]);
-                arg_q.count += 1;
-                return 0;
-            }
-
-            int Dequeue(Queue arg_q)
-            {
-                if (arg_q.front == -1 || arg_q.front > arg_q.rear) //if queue is empty or if front > rear
-                {
-                    Console.WriteLine("Underflow, queue is empty!");
-                    return 1;
-                }
-                else
-                {
-                    string val_removed = arg_q.data[arg_q.front];
-                    Console.WriteLine("Element removed from queue: " + val_removed);
-                    arg_q.front += 1; //move front to the next element, hence removing queue
-                }
-                arg_q.count -= 1;
-                return 0;
-            }
-
-            int Peek(Queue arg_q)
-            {
-                if (arg_q.count == 0)
-                {
-                    Console.WriteLine("Queue is empty");
-                    return 1;
-                }
-                else
-                {
-                    Console.WriteLine("Value in front is: " + arg_q.data[arg_q.front]);
-                    return 0;
-                }
-            }
-
-            bool isEmpty(Queue arg_q)
-            {
-                if (arg_q.count == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            do
-            {
-                Console.WriteLine("Operations: \n");
-                Console.WriteLine("===============");
-                Console.WriteLine("1. Enqueue");
-                Console.WriteLine("2. Dequeue");
-                Console.WriteLine("3. Peek");
-                Console.WriteLine("4. Check if queue is empty");
-
-                user_choice = Convert.ToInt16(Console.ReadLine());
-
-                switch (user_choice)
-                {
-                    case 1:
-                        Console.WriteLine("Element you want to add to queue: ");
-                        user_input = Console.ReadLine();
-                        Enqueue(user_input, queue);
-                        break;
-                    case 2:
-                        Dequeue(queue);
-                        break;
-                    case 3:
-                        Peek(queue);
-                        break;
-                    case 4:
-                        bool output = isEmpty(queue);
-                        if (output == true)
-                        {
-                            Console.WriteLine("Queue is empty!");
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Queue is not empty!");
-                            break;
-                        }
-                }
-            } while (user_choice >= 1 && user_choice <= 4);
+            int index_of_visited = 0; //initialized as 0 will +1 when enqueue -1 when dequeue
+            //get the length of graph
+            int length_of_graph = adj.Count;
+            //create a list to store traversed nodes
+            List<string> traversed = new List<string>();
+            //create a queue for BFS
+            Queue<char> queue = new Queue<char>();
+            //mark all the vertices as not visited
+            bool[] visited = new bool[length_of_graph];
+            //mark the root node as visited before traversing
+            visited[index_of_visited] = true;
+            queue.Enqueue(root); //queue in the root node because it is visited
+            return traversed;
         }
+
+        //create a dictionary to store the graph
+        Dictionary<char, List<char>> graph = new Dictionary<char, List<char>>();
+        graph['A'] = new List<char>{'B', 'C', 'D'};
+        graph['B'] = new List<char>{'A', 'D', 'E'};
+        graph['C'] = new List<char>{'A', 'F', 'G'};
+        graph['D'] = new List<char>{'C', 'B'};
+        graph['E'] = new List<char>{'B', 'H'};
+        graph['F'] = new List<char>{'C', 'E'};
+        graph['G'] = new List<char>{'C', 'F'};
+        graph['H'] = new List<char>{'E', 'F', 'G'};
+        
+        
+        Console.WriteLine("Hello, World!");
     }
 }
