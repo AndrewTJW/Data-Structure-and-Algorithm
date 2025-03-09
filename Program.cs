@@ -1,41 +1,51 @@
 ﻿namespace Lab4;
 
-//implement graphs to demonstrate BFS and DFS
 class Program
 {
-    //implement a node for queue
-    public class Node
-    {
-        public string data;
-        public Node next;
-        
-        //constructor
-        public Node(string arg_data)
-        {
-            data = arg_data;
-        }
-    }
-    
     static void Main(string[] args)
     {
-        List<string> BFSTraversal(List<string> adj, char root)
+        List<char> BFSTraversal(Dictionary<char, List<char>> adj, char root)
         {
-            int index_of_visited = 0; //initialized as 0 will +1 when enqueue -1 when dequeue
             //get the length of graph
-            int length_of_graph = adj.Count;
+            int length_of_graph = 8; //A B C D E F G H 
             //create a list to store traversed nodes
-            List<string> traversed = new List<string>();
+            List<char> traversed = new List<char>();
             //create a queue for BFS
             Queue<char> queue = new Queue<char>();
             //mark all the vertices as not visited
-            bool[] visited = new bool[length_of_graph];
+            Dictionary<char, bool> visited = new Dictionary<char, bool>();
+            visited['A'] = false;
+            visited['B'] = false;
+            visited['C'] = false;
+            visited['D'] = false;
+            visited['E'] = false;
+            visited['F'] = false;
+            visited['G'] = false;
+            visited['H'] = false;
+            
             //mark the root node as visited before traversing
-            visited[index_of_visited] = true;
+            visited[root] = true;
             queue.Enqueue(root); //queue in the root node because it is visited
+            
+            while (queue.Count > 0)
+            {
+                char current_node = queue.Dequeue();
+                traversed.Add(current_node);
+
+                foreach (char sibling in adj[current_node])
+                {
+                    if (visited[sibling] != true)
+                    {
+                        visited[sibling] = true;
+                        queue.Enqueue(sibling);
+                    }
+                }
+            }
             return traversed;
         }
 
         //create a dictionary to store the graph
+        
         Dictionary<char, List<char>> graph = new Dictionary<char, List<char>>();
         graph['A'] = new List<char>{'B', 'C', 'D'};
         graph['B'] = new List<char>{'A', 'D', 'E'};
@@ -46,7 +56,12 @@ class Program
         graph['G'] = new List<char>{'C', 'F'};
         graph['H'] = new List<char>{'E', 'F', 'G'};
         
+        char source = 'A'; //start from node 'A'
         
-        Console.WriteLine("Hello, World!");
+        List<char> result = BFSTraversal(graph, source);
+        foreach (char element in result)
+        {
+            Console.WriteLine(element + " ");
+        }
     }
 }
